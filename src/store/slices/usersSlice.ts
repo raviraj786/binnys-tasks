@@ -19,6 +19,7 @@ export const fetchUsers = createAsyncThunk(
     } catch (err) {
       try {
         const cached = await AsyncStorage.getItem("cachedUsers");
+        console.log(cached, "user in ofline mode");
         if (cached) return JSON.parse(cached) as User[];
         return rejectWithValue("No cached data");
       } catch (e) {

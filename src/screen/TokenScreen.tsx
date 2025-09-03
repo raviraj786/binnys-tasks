@@ -13,9 +13,11 @@ export default function TokenScreen() {
   return (
     <View style={{ flex: 1 }}>
       <View style={{ padding: 12 }}>
-        <Text style={{color:'#000' , margin:10 }}>Stored token: {token ?? "none"}</Text>
+        <Text style={{ color: "#000", margin: 10 }}>
+          Stored token: {token ?? "none"}
+        </Text>
         <Button
-        style={{margin:10}}
+          style={{ margin: 10 }}
           mode="contained"
           onPress={async () => {
             await storeToken("dummy-token-123");
@@ -29,7 +31,6 @@ export default function TokenScreen() {
             await deleteToken();
             setToken(await getToken());
           }}
-        
         >
           Delete Token
         </Button>

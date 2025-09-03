@@ -15,7 +15,7 @@ export default function UsersScreen() {
     dispatch(fetchUsers() as any);
   }, [dispatch]);
 
-  console.log(items);
+
 
   return (
     <View style={{ flex: 1 }}>
