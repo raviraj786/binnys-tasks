@@ -1,23 +1,29 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React from "react";
 import HomeTabs from "../screen/HomeTabs";
-import ProductListScreen from "../screen/ProductListScreen";
+import UserDetailScreen from "../screen/UserDetailScreen";
 
-const Stack = createNativeStackNavigator();
+
+
+export type RootStackParamList = {
+  Tabs: undefined;
+  UserDetails: { id: string };
+};
+
+
+
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator initialRouteName="Home">
+    <Stack.Navigator >
       <Stack.Screen
-        name="Home"
+       name="Tabs"
         component={HomeTabs}
         options={{ headerShown: false }}
       />
-      <Stack.Screen
-        name="Details"
-        component={ProductListScreen}
-        options={{ headerShown: false }}
-      />
+           <Stack.Screen name="UserDetails" component={UserDetailScreen} options={{ title: 'User Details' }} />
+
     </Stack.Navigator>
   );
 }
